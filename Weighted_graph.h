@@ -118,20 +118,35 @@ int Weighted_graph::edge_count() const {
 }
 
 double Weighted_graph::adjacent(int node1, int node2) const {
-	if (((node1 || node2) < 0) || ((node1 || node2) >= vertices)) {
+	if ((node1 < 0 || node2 < 0) || (node1 >= vertices || node2 >= vertices)) {
 		throw illegal_argument();
 	}
 	return adjacency[node1][node2];
 }
 
-double Weighted_graph::distance(int placeholder1, int placeholder2) {
+double Weighted_graph::distance(int node1, int node2) {
 	bool *visited = new bool[vertices];
 	double *cost = new double[vertices];
-	double shortest_distance = 0;
+	double shortest_distance = INF;
+	bool finished = false;
 
 	for (int i = 0; i < vertices; i++) {
 		visited[i] = true;
 		cost[i] = INF;
+	}
+
+	while (!finished) {
+		// STEP 1: Initialize node1's cost to 0
+		// STEP 2: Look through all nodes node1 is adjacent to, update the cost array, and find the shortest distance
+		// STEP 3: For the node with the shortest distance, mark it as visited, and look through all the nodes it is adjacent to and update the cost array accordingly
+		// STEP 4: Look through the cost array and find the shortest distance, mark that node as visited, search through everything it is adj to and update cost
+		// STEP 5: Repeat Step 4 until all connected nodes are visited
+		// NOTE: Costs need to be updated if shorter paths to already discovered nodes are found
+		// NOTE: When looking at the third node in a string (if you got 3 shortest distance's in a row), you should save a sum of the distance you've travelled so far
+		// NOTE: Every time you start at an existing node and check its adjacents, make the saved distance equal to that node's distance in the cost array, and THEN continue
+			// - Ideally, if you've been updating the cost array each time a new path is found, this should be the current shortest distance to that node
+
+		finished = true; // Temporary to prevent infinite loops
 	}
 
 	// Cleanup

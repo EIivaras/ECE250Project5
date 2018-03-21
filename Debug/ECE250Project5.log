@@ -5,8 +5,6 @@ c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(505): war
 c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(544): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
 c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(544): warning C5043: 'operator new[]': exception specification does not match previous declaration
   c:\users\toddw_000\source\repos\ece250project5\ece250project5\predefined c++ types (compiler internal)(58): note: see declaration of 'operator new[]'
-c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(121): warning C4804: '<': unsafe use of type 'bool' in operation
-c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(121): warning C4804: '>=': unsafe use of type 'bool' in operation
   Generating Code...
   Skipping... (no relevant changes detected)
   Test.cpp
