@@ -48,6 +48,8 @@ public:
 	double **adjacency;
 	bool *visited;
 	double *cost;
+	int *degree_array;
+	int edges;
 
 	// Member Fxns
 
@@ -77,10 +79,13 @@ const double Weighted_graph::INF = std::numeric_limits<double>::infinity();
 Weighted_graph::Weighted_graph(int n):
 	adjacency(new double*[n]),
 	visited(new bool[n]),
-	cost(new double[n]) {
+	cost(new double[n]),
+	degree_array(new int[n]),
+	edges(0){
 	for (int i = 0; i < n; i++) {
 		adjacency[i] = new double[n];
 		// Will set visited and cost inside distance, since they need to be reset on every distance calculation
+		degree_array[i] = 0;
 	}
 	return;
 }
@@ -89,14 +94,12 @@ Weighted_graph::~Weighted_graph() {
 	// IMPLEMENTATION REQUIRED
 }
 
-int Weighted_graph::degree(int placeholder) const {
-	// IMPLEMENTATION REQUIRED
-	return 0;
+int Weighted_graph::degree(int node) const {
+	return degree_array[node - 1];
 }
 
 int Weighted_graph::edge_count() const {
-	// IMPLEMENTATION REQUIRED
-	return 0;
+	return edges;
 }
 
 double Weighted_graph::adjacent(int placeholder1, int placeholder2) const {
@@ -109,8 +112,12 @@ double Weighted_graph::distance(int placeholder1, int placeholder2) {
 	return 0;
 }
 
-void Weighted_graph::insert(int placeholder1, int placeholder2, double placeholder3) {
-	// IMPLEMENTATION REQUIRED
+void Weighted_graph::insert(int node1, int node2, double weight) {
+	adjacency[node1][node2] = weight;
+	adjacency[node2][node1] = weight;
+	degree_array[node1 - 1]++;
+	degree_array[node2 - 1]++;
+	edges++;
 	return;
 }
 
