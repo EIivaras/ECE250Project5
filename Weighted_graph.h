@@ -32,6 +32,7 @@
 
 #include <iostream>
 #include <limits>
+#include "Exception.h"
 
 // include whatever classes you want
 
@@ -50,6 +51,7 @@ public:
 	double *cost;
 	int *degree_array;
 	int edges;
+	int vertices;
 
 	// Member Fxns
 
@@ -81,30 +83,46 @@ Weighted_graph::Weighted_graph(int n):
 	visited(new bool[n]),
 	cost(new double[n]),
 	degree_array(new int[n]),
-	edges(0){
+	edges(0),
+	vertices(n){
 	for (int i = 0; i < n; i++) {
 		adjacency[i] = new double[n];
 		// Will set visited and cost inside distance, since they need to be reset on every distance calculation
 		degree_array[i] = 0;
+		for (int j = 0; j < n; j++) {
+			if (i == j)
+			{
+				adjacency[i][j] = 0;
+			}
+			else {
+				adjacency[i][j] = INF;
+			}
+		}
 	}
 	return;
 }
 
 Weighted_graph::~Weighted_graph() {
-	// IMPLEMENTATION REQUIRED
+	delete adjacency;
+	delete visited;
+	delete cost;
+	delete degree_array;
+	edges = 0;
 }
 
 int Weighted_graph::degree(int node) const {
-	return degree_array[node - 1];
+	return degree_array[node];
 }
 
 int Weighted_graph::edge_count() const {
 	return edges;
 }
 
-double Weighted_graph::adjacent(int placeholder1, int placeholder2) const {
-	// IMPLEMENTATION REQUIRED
-	return 0;
+double Weighted_graph::adjacent(int node1, int node2) const {
+	if (((node1 || node2) < 0) || ((node1 || node2) >= vertices)) {
+		throw illegal_argument();
+	}
+	return adjacency[node1][node2];
 }
 
 double Weighted_graph::distance(int placeholder1, int placeholder2) {
@@ -115,8 +133,8 @@ double Weighted_graph::distance(int placeholder1, int placeholder2) {
 void Weighted_graph::insert(int node1, int node2, double weight) {
 	adjacency[node1][node2] = weight;
 	adjacency[node2][node1] = weight;
-	degree_array[node1 - 1]++;
-	degree_array[node2 - 1]++;
+	degree_array[node1]++;
+	degree_array[node2]++;
 	edges++;
 	return;
 }

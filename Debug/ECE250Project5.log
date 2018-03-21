@@ -1,4 +1,6 @@
 ﻿  Test.cpp
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(122): warning C4804: '<': unsafe use of type 'bool' in operation
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(122): warning C4804: '>=': unsafe use of type 'bool' in operation
   Generating Code...
   Skipping... (no relevant changes detected)
   Weighted_graph_driver.cpp
