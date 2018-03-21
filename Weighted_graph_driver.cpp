@@ -13,7 +13,6 @@
 * receives either the command 'exit' or and
 * end-of-file.
 ****************************************************/
-/*
 #include <iostream>
 #include "Weighted_graph_tester.h"
 
@@ -28,4 +27,3 @@ int main() {
 
 	return 0;
 }
-*/

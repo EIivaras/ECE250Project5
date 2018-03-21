@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "Weighted_graph.h"
 
@@ -6,3 +7,4 @@ int main() {
 
 	return 0;
 }
+*/

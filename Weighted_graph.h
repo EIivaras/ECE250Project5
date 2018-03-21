@@ -40,18 +40,14 @@ class Weighted_graph {
 private:
 	// your implementation here
 	//  you can add both private member variables and private member functions
+	double **adjacency;
+	int *degree_array;
+	int edges;
+	int vertices;
 
 	static const double INF;
 
 public:
-	// Member Variables
-
-	double **adjacency;
-	bool *visited;
-	double *cost;
-	int *degree_array;
-	int edges;
-	int vertices;
 
 	// Member Fxns
 
@@ -80,8 +76,6 @@ const double Weighted_graph::INF = std::numeric_limits<double>::infinity();
 
 Weighted_graph::Weighted_graph(int n):
 	adjacency(new double*[n]),
-	visited(new bool[n]),
-	cost(new double[n]),
 	degree_array(new int[n]),
 	edges(0),
 	vertices(n){
@@ -103,14 +97,19 @@ Weighted_graph::Weighted_graph(int n):
 }
 
 Weighted_graph::~Weighted_graph() {
-	delete adjacency;
-	delete visited;
-	delete cost;
-	delete degree_array;
+	for (int i = 0; i < vertices; i++) {
+		delete[] adjacency[i];
+	}
+	delete[] adjacency;
+	delete[] degree_array;
 	edges = 0;
+	vertices = 0;
 }
 
 int Weighted_graph::degree(int node) const {
+	if ((node < 0) || (node >= vertices)) {
+		throw illegal_argument();
+	}
 	return degree_array[node];
 }
 
@@ -126,8 +125,19 @@ double Weighted_graph::adjacent(int node1, int node2) const {
 }
 
 double Weighted_graph::distance(int placeholder1, int placeholder2) {
-	// IMPLEMENTATION REQUIRED
-	return 0;
+	bool *visited = new bool[vertices];
+	double *cost = new double[vertices];
+	double shortest_distance = 0;
+
+	for (int i = 0; i < vertices; i++) {
+		visited[i] = true;
+		cost[i] = INF;
+	}
+
+	// Cleanup
+	delete visited;
+	delete cost;
+	return shortest_distance;
 }
 
 void Weighted_graph::insert(int node1, int node2, double weight) {
@@ -142,6 +152,13 @@ void Weighted_graph::insert(int node1, int node2, double weight) {
 // You can modify this function however you want:  it will not be tested
 
 std::ostream &operator<<(std::ostream &out, Weighted_graph const &graph) {
+	for (int i = 0; i < graph.vertices; i++) {
+		out << "||";
+		for (int j = 0; j < graph.vertices; j++) {
+			out << "     " << graph.adjacency[i][j];
+		}
+		out << "      ||" << std::endl;
+	}
 	return out;
 }
 

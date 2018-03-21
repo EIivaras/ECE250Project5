@@ -1,7 +1,13 @@
-﻿  Test.cpp
-c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(122): warning C4804: '<': unsafe use of type 'bool' in operation
-c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(122): warning C4804: '>=': unsafe use of type 'bool' in operation
+﻿  Weighted_graph_driver.cpp
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(505): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(505): warning C5043: 'operator new': exception specification does not match previous declaration
+  c:\users\toddw_000\source\repos\ece250project5\ece250project5\predefined c++ types (compiler internal)(33): note: see declaration of 'operator new'
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(544): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\ece250.h(544): warning C5043: 'operator new[]': exception specification does not match previous declaration
+  c:\users\toddw_000\source\repos\ece250project5\ece250project5\predefined c++ types (compiler internal)(58): note: see declaration of 'operator new[]'
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(121): warning C4804: '<': unsafe use of type 'bool' in operation
+c:\users\toddw_000\source\repos\ece250project5\ece250project5\weighted_graph.h(121): warning C4804: '>=': unsafe use of type 'bool' in operation
   Generating Code...
   Skipping... (no relevant changes detected)
-  Weighted_graph_driver.cpp
+  Test.cpp
   ECE250Project5.vcxproj -> C:\Users\toddw_000\source\repos\ECE250Project5\Debug\ECE250Project5.exe
