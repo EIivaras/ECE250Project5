@@ -19,15 +19,16 @@
 int main() {
 	Weighted_graph_tester tester;
 
-	std::cout << "Starting Test Run" << std::endl;
+	//std::cout << "Starting Test Run" << std::endl;
 
-	tester.run();
+	//tester.run();
 
-	std::cout << "Finishing Test Run" << std::endl;
+	//std::cout << "Finishing Test Run" << std::endl;
 
-	//Weighted_graph graph(5);
-	//graph.insert(0, 1, 1);
-	//graph.distance(0, 1);
+	Weighted_graph graph(5);
+	graph.insert(0, 1, 1);
+	graph.distance(0, 1);
+	graph.insert(0, 2, 1);
 
 	return 0;
 }

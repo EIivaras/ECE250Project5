@@ -184,8 +184,8 @@ double Weighted_graph::distance(int node1, int node2) {
 	std::cout << "Shortest Distance: " << shortest_distance << std::endl;
 
 	// Cleanup
-	delete visited;
-	delete cost;
+	delete[] visited;
+	delete[] cost;
 	return shortest_distance;
 }
 
