@@ -143,7 +143,6 @@ double Weighted_graph::distance(int node1, int node2) {
 	// STEP 2: Look through all nodes node1 is adjacent to, update the cost array
 	for (int i = 0; i < vertices; i++) {
 		cost[i] = adjacency[node1][i];
-		std::cout << cost[i] << std::endl;
 	}
 
 	double current_shortest_path;
@@ -153,7 +152,7 @@ double Weighted_graph::distance(int node1, int node2) {
 		node_csp = -1; // node current shortest path
 		// STEP 3: Step through the cost array and find the node that is the shortest path from the starting node, provided it has not been visited already
 		for (int i = 0; i < vertices; i++) {
-			if (visited[i] != true && cost[i] < INF) {
+			if (visited[i] != true && cost[i] < current_shortest_path) {
 				current_shortest_path = cost[i];
 				node_csp = i;
 			}
