@@ -25,5 +25,9 @@ int main() {
 
 	std::cout << "Finishing Test Run" << std::endl;
 
+	//Weighted_graph graph(5);
+	//graph.insert(0, 1, 1);
+	//graph.distance(0, 1);
+
 	return 0;
 }
